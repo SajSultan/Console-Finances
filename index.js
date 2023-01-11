@@ -86,11 +86,16 @@ var finances = [
   ["Jan-2017", 138230],
   ["Feb-2017", 671099],
 ];
+const numberFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+
+});
 
 let totalMonths = 0;
 let monthlyChange = [];
 let monthlyChangeDate = [];
-let totalProfitLoss = [];
+let totalProfitLoss = 0;
 let maximum = -Infinity;
 let minimum = Infinity;
 
@@ -99,23 +104,21 @@ let minimum = Infinity;
 for (let i = 0; i < finances.length; i++) {
   totalMonths = finances.length;
 }
-console.log("Financial Analysis");
-console.log("-------------------");
 
 // Array of monthly profits
 for (let i = 0; i < finances.length - 1; i++) {
   monthlyChange.push(finances[i + 1][1] - finances[i][1]);
 }
-console.log(monthlyChange);
+
 
 //Array for monthly Change Dates
 
 
-/*
+// Array for total profits loss over full period
 for(let i = 0; i < finances.length; i++) {
-   totalProfitLoss.push(finances[i][1] + finances)
+   totalProfitLoss += finances[i][1];
 }
-*/
+
 
 
 for (let number of monthlyChange) {
@@ -123,9 +126,10 @@ for (let number of monthlyChange) {
 
   if(number < minimum) minimum = number;
 }
-
-console.log("Total: " + totalProfitLoss)
-console.log("Greatest Increase in Profits: "  + maximum)
+console.log("Financial Analysis");
+console.log("-------------------");
+console.log(numberFormatter + "Total: " + totalProfitLoss)
+console.log("Greatest Increase in Profits:  "  + maximum)
 console.log("Greatest Decrease in Profits: "  + minimum)
 
 // new array from monthly change//
