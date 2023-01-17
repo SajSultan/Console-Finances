@@ -1,4 +1,4 @@
-var finances = [
+let finances = [
   ["Jan-2010", 867884],
   ["Feb-2010", 984655],
   ["Mar-2010", 322013],
@@ -86,31 +86,33 @@ var finances = [
   ["Jan-2017", 138230],
   ["Feb-2017", 671099],
 ];
-const numberFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-
-});
-
+// Create global variables  here ---------------
 let totalMonths = 0;
 let monthlyChange = [];
 let monthlyChangeDate = [];
 let totalProfitLoss = 0;
 let maximum = -Infinity;
 let minimum = Infinity;
+let average = 0;
+
+average.toFixed(2);
 
 
+// -----------------------------------------------------------
 //for loop for total months//
 for (let i = 0; i < finances.length; i++) {
   totalMonths = finances.length;
 }
 
-// Array of monthly profits
+// Array of monthly profits losses change
 for (let i = 0; i < finances.length - 1; i++) {
   monthlyChange.push(finances[i + 1][1] - finances[i][1]);
+  
 }
+for (let i = 0; i < finances.length - 1; i++) {
+  monthlyChange.push(finances[i + 1][0] - finances[i][0]);
 
-
+}
 //Array for monthly Change Dates
 
 
@@ -120,6 +122,23 @@ for(let i = 0; i < finances.length; i++) {
 }
 
 
+// Array for average of monthlychanges 
+
+function findAverage(monthlyChange) {
+  for(let i = 0; i < monthlyChange.length; i++) {
+    let currentNum = monthlyChange[i]
+    average += currentNum
+  }
+  average = average / monthlyChange.length
+  return average;
+}
+findAverage(monthlyChange)
+
+// new array from old array//
+/*const newArray = finances.concat(monthlyChange)
+console.log(newArray);
+
+*/
 
 for (let number of monthlyChange) {
   if (number > maximum) maximum = number;
@@ -128,16 +147,16 @@ for (let number of monthlyChange) {
 }
 console.log("Financial Analysis");
 console.log("-------------------");
-console.log(numberFormatter + "Total: " + totalProfitLoss)
-console.log("Greatest Increase in Profits:  "  + maximum)
-console.log("Greatest Decrease in Profits: "  + minimum)
+console.log("Total Months: " + totalMonths);
+console.log("Total: " + "$" + totalProfitLoss)
+console.log("Average  Change: " + "$" + average);
+console.log("Greatest Increase in Profits: " + "$" +  maximum)
+console.log("Greatest Decrease in Profits: " + "$" +  minimum)
 
-// new array from monthly change//
+
 
 // make sum total balance for full period of profit/ losses and average//
 
 //Greatest increase in profits DATE and AMOUNT //
 
 //Greatest decrease in profits DATE and AMOUNT //
-
-// console.log(theArray.toLocaleString("en-US", {style: "currency", currency: "USD"}));
