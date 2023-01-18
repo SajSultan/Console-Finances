@@ -86,6 +86,11 @@ let finances = [
   ["Jan-2017", 138230],
   ["Feb-2017", 671099],
 ];
+ let extractedChangesArr = [
+
+ ]
+
+
 // Create global variables  here ---------------
 let totalMonths = 0;
 let monthlyChange = [];
@@ -95,7 +100,7 @@ let maximum = -Infinity;
 let minimum = Infinity;
 let average = 0;
 
-average.toFixed(2);
+
 
 
 // -----------------------------------------------------------
@@ -120,6 +125,7 @@ for (let i = 0; i < finances.length - 1; i++) {
 for(let i = 0; i < finances.length; i++) {
    totalProfitLoss += finances[i][1];
 }
+
 
 
 // Array for average of monthlychanges 
@@ -151,7 +157,7 @@ console.log("Financial Analysis");
 console.log("-------------------");
 console.log("Total Months: " + totalMonths);
 console.log("Total: " + "$" + totalProfitLoss)
-console.log("Average  Change: " + "$" + average);
+console.log("Average  Change: " + "$" + average.toFixed(2));
 console.log("Greatest Increase in Profits: " + "$" +  maximum)
 console.log("Greatest Decrease in Profits: " + "$" +  minimum)
 
