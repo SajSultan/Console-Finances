@@ -110,7 +110,7 @@ for (let i = 0; i < finances.length - 1; i++) {
   
 }
 for (let i = 0; i < finances.length - 1; i++) {
-  monthlyChange.push(finances[i + 1][0] - finances[i][0]);
+  monthlyChangeDate.push(finances[i][0]);
 
 }
 //Array for monthly Change Dates
@@ -134,10 +134,12 @@ function findAverage(monthlyChange) {
 }
 findAverage(monthlyChange)
 
+
+// To complete-----------------------------
 // new array from old array//
 /*const newArray = finances.concat(monthlyChange)
 console.log(newArray);
-
+---------------------------------------------------------------------
 */
 
 for (let number of monthlyChange) {
